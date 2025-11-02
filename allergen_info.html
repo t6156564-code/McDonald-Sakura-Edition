@@ -52,11 +52,17 @@
 
         /* Header */
         .header {
-            background: linear-gradient(135deg, #FFB6C1 0%, #FFC0CB 100%);
-            color: #2d2d2d;
-            padding: 0;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-            border-bottom: 1px solid rgba(184, 134, 11, 0.2);
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #FFD700;
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(184, 134, 11, 0.4);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid #B8860B;
         }
 
         .nav-container {
@@ -98,15 +104,15 @@
         }
 
         .back-button {
-            background: linear-gradient(135deg, #B8860B 0%, #DAA520 100%);
-            color: #1a1a1a;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 30px;
-            font-weight: 800;
+            display: inline-block;
+            padding: 12px 24px;
+            background: #8B9A7A;
+            color: white;
             text-decoration: none;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(184, 134, 11, 0.3);
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
         }
 
         .back-button:hover {
@@ -248,7 +254,7 @@
         .legend-title {
             font-size: 24px;
             font-weight: 700;
-            color: #FF69B4;
+            color: #DAA520;
             margin-bottom: 15px;
         }
 
@@ -266,11 +272,14 @@
         }
 
         .contact-info {
-            background: white;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
             border-radius: 15px;
             padding: 30px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 25px rgba(184, 134, 11, 0.2);
             text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid #B8860B;
+            color: #FFD700;
         }
 
         .contact-title {
