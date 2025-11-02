@@ -6,7 +6,7 @@
     <title>McDonald's Sakura Edition - Menu Spécial Japon</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -15,12 +15,14 @@
         }
 
         body {
-            font-family: 'Noto Sans JP', 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
             line-height: 1.6;
             color: #f5f5f5;
             background-color: #1a1a1a;
             margin: 0;
             padding: 0;
+            font-weight: 400;
+            letter-spacing: 0.3px;
         }
 
         /* Header */
@@ -139,6 +141,82 @@
             }
         }
 
+        /* Typography - Headings */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', 'Noto Sans JP', serif;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            line-height: 1.3;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+        }
+
+        /* Elegant Spacing & Layout Improvements */
+        .container {
+            padding: 0 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 4rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-subtitle {
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #cccccc;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Enhanced Card Spacing */
+        .menu-grid {
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .menu-card {
+            margin-bottom: 2rem;
+        }
+
+        .card-content {
+            padding: 2rem;
+        }
+
+        .card-title {
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .card-description {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(45, 45, 45, 0.9) 50%, rgba(26, 26, 26, 0.9) 100%),
@@ -246,17 +324,19 @@
         }
 
         .hero-title {
+            font-family: 'Playfair Display', 'Noto Sans JP', serif;
             font-size: 72px;
-            font-weight: 900;
+            font-weight: 700;
             background: linear-gradient(135deg, #FFB6C1 0%, #f5f5f5 30%, #FF69B4 60%, #f5f5f5 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 25px;
             text-transform: uppercase;
-            letter-spacing: -3px;
+            letter-spacing: -1px;
             line-height: 1.1;
             text-shadow: 0 2px 4px rgba(255, 105, 180, 0.3);
+            font-style: italic;
         }
 
         .hero-subtitle {
@@ -320,17 +400,19 @@
         }
 
         .section-title {
+            font-family: 'Playfair Display', 'Noto Sans JP', serif;
             text-align: center;
             font-size: 56px;
-            font-weight: 900;
+            font-weight: 600;
             background: linear-gradient(135deg, #FFB6C1 0%, #f5f5f5 30%, #FF69B4 60%, #f5f5f5 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 25px;
-            text-transform: uppercase;
-            letter-spacing: -2px;
+            text-transform: capitalize;
+            letter-spacing: 0.5px;
             text-shadow: 0 2px 4px rgba(255, 105, 180, 0.2);
+            font-style: normal;
         }
 
         .section-subtitle {
@@ -819,10 +901,10 @@
                 <div class="logo-text">McDonald's 🌸</div>
             </div>
             <ul class="nav-menu">
-                <li><a href="#menu">🍃 Menu</a></li>
-                <li><a href="nutrition_info.html">🌸 Nutrition</a></li>
-                <li><a href="#locations" onclick="showLocations()">📍 Locations</a></li>
-                <li><a href="#about" onclick="showAbout()">🏮 About</a></li>
+                <li><a href="#menu">🍃✨ Menu</a></li>
+                <li><a href="nutrition_info.html">🌸🥗 Nutrition</a></li>
+                <li><a href="#locations" onclick="showLocations()">📍🏮 Locations</a></li>
+                <li><a href="#about" onclick="showAbout()">🏮💫 About</a></li>
             </ul>
         </nav>
         <div class="nav-sakura nav-sakura-1"></div>
@@ -844,7 +926,7 @@
         <div class="sakura"></div>
         <div class="hero-content">
             <div class="hero-badge">Limited Time Only</div>
-            <h1 class="hero-title">🌸 Sakura Edition 🌸</h1>
+            <h1 class="hero-title">🌸✨ Sakura Edition ✨🌸</h1>
             <p class="hero-subtitle">Experience the authentic taste of Japan with our exclusive limited-time menu<br>
             <span style="font-size: 18px; color: #FFB6C1; font-weight: 500;">日本の味 • Nihon no Aji • The Taste of Japan</span></p>
             <a href="#menu" class="cta-button">Explore Menu</a>
@@ -865,7 +947,7 @@
                         <div class="card-badge">Premium</div>
                     </div>
                     <div class="card-content">
-                        <h3 class="card-title">McWagyu Burger</h3>
+                        <h3 class="card-title">🥩✨ McWagyu Burger</h3>
                         <p class="card-description">Premium Wagyu beef patty with authentic teriyaki sauce, fresh lettuce, tomato, and red onion on a toasted sesame seed bun.</p>
                         <div class="card-price">€12.90</div>
                         <ul class="card-features">
@@ -891,7 +973,7 @@
                         <div class="card-badge">New</div>
                     </div>
                     <div class="card-content">
-                        <h3 class="card-title">Nori Sesame Fries</h3>
+                        <h3 class="card-title">🍟🌿 Nori Sesame Fries</h3>
                         <p class="card-description">Our signature golden fries seasoned with premium nori seaweed and toasted sesame seeds, served with wasabi mayo dip.</p>
                         <div class="card-price">€4.50</div>
                         <ul class="card-features">
@@ -917,7 +999,7 @@
                         <div class="card-badge">Authentic</div>
                     </div>
                     <div class="card-content">
-                        <h3 class="card-title">Matcha McDip</h3>
+                        <h3 class="card-title">🍵💚 Matcha McDip</h3>
                         <p class="card-description">Refreshing matcha drink made with authentic green tea powder from Kyoto, served cold with a creamy texture and vibrant green color.</p>
                         <div class="card-price">€4.90</div>
                         <ul class="card-features">
@@ -943,7 +1025,7 @@
     <section class="combo-section">
         <div class="combo-container">
             <div class="combo-badge">Best Value</div>
-            <h2 class="combo-title">Complete Sakura Experience</h2>
+            <h2 class="combo-title">🌸✨ Complete Sakura Experience ✨🌸</h2>
             <div class="combo-price">€19.90</div>
             <p class="combo-savings">Save €2.40 compared to individual items</p>
             <a href="#order" class="cta-button" style="background: #FF69B4; color: #ffffff;">Order Now</a>
@@ -1055,19 +1137,19 @@
                     </div>
                     <div class="modal-body">
                         <div class="about-section">
-                            <h3>🌸 Our Story</h3>
+                            <h3>🌸✨ Our Story</h3>
                             <p>The McDonald's Sakura Edition celebrates the beauty of Japanese cherry blossom season with exclusive menu items inspired by traditional Japanese flavors and ingredients.</p>
                         </div>
                         <div class="about-section">
-                            <h3>🍱 Limited Time Menu</h3>
+                            <h3>🍱🌸 Limited Time Menu</h3>
                             <p>Our special Sakura menu features unique items like Sakura Burger, Matcha McFlurry, and Teriyaki Chicken, available only during cherry blossom season.</p>
                         </div>
                         <div class="about-section">
-                            <h3>🏮 Cultural Heritage</h3>
+                            <h3>🏮💫 Cultural Heritage</h3>
                             <p>We honor Japanese culture by incorporating authentic flavors and seasonal ingredients, creating a unique McDonald's experience that celebrates Japan's rich culinary traditions.</p>
                         </div>
                         <div class="about-section">
-                            <h3>📞 Contact Us</h3>
+                            <h3>📞🌸 Contact Us</h3>
                             <p>Email: sakura@mcdonalds.jp<br>
                             Phone: +81-3-SAKURA-1<br>
                             Follow us: @McDonaldsJapan</p>
