@@ -626,6 +626,101 @@
             color: #B8860B;
             font-weight: 500;
         }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            border-radius: 20px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(184, 134, 11, 0.2);
+        }
+
+        .modal-header {
+            padding: 25px 30px 20px;
+            border-bottom: 1px solid rgba(184, 134, 11, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            color: #f5f5f5;
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #f5f5f5 0%, #B8860B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: #f5f5f5;
+            font-size: 30px;
+            cursor: pointer;
+            padding: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background: rgba(184, 134, 11, 0.2);
+            color: #B8860B;
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .location-item, .about-section {
+            background: linear-gradient(135deg, #2d2d2d 0%, #3a3a3a 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(184, 134, 11, 0.1);
+        }
+
+        .location-item h3, .about-section h3 {
+            color: #B8860B;
+            margin: 0 0 15px 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .location-item p, .about-section p {
+            color: #cccccc;
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        .location-item:last-child, .about-section:last-child {
+            margin-bottom: 0;
+        }
     </style>
 </head>
 <body>
@@ -638,9 +733,9 @@
             </div>
             <ul class="nav-menu">
                 <li><a href="#menu">Menu</a></li>
-                <li><a href="#nutrition">Nutrition</a></li>
-                <li><a href="#locations">Locations</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="nutrition_info.html">Nutrition</a></li>
+                <li><a href="#locations" onclick="showLocations()">Locations</a></li>
+                <li><a href="#about" onclick="showAbout()">About</a></li>
             </ul>
         </nav>
     </header>
@@ -816,6 +911,91 @@
                 nutritionInfo.style.display = 'none';
             }
         }
+
+        // Show Locations Modal
+        function showLocations() {
+            const modal = document.createElement('div');
+            modal.className = 'modal-overlay';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>McDonald's Locations</h2>
+                        <button class="close-btn" onclick="closeModal()">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="location-item">
+                            <h3>Tokyo Shibuya</h3>
+                            <p>📍 1-2-3 Shibuya, Tokyo 150-0002, Japan</p>
+                            <p>🕒 24/7 Open</p>
+                            <p>📞 +81-3-1234-5678</p>
+                        </div>
+                        <div class="location-item">
+                            <h3>Osaka Dotonbori</h3>
+                            <p>📍 4-5-6 Dotonbori, Osaka 542-0071, Japan</p>
+                            <p>🕒 6:00 AM - 2:00 AM</p>
+                            <p>📞 +81-6-9876-5432</p>
+                        </div>
+                        <div class="location-item">
+                            <h3>Kyoto Gion</h3>
+                            <p>📍 7-8-9 Gion, Kyoto 605-0001, Japan</p>
+                            <p>🕒 7:00 AM - 11:00 PM</p>
+                            <p>📞 +81-75-1111-2222</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+
+        // Show About Modal
+        function showAbout() {
+            const modal = document.createElement('div');
+            modal.className = 'modal-overlay';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>About McDonald's Sakura Edition</h2>
+                        <button class="close-btn" onclick="closeModal()">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="about-section">
+                            <h3>🌸 Our Story</h3>
+                            <p>The McDonald's Sakura Edition celebrates the beauty of Japanese cherry blossom season with exclusive menu items inspired by traditional Japanese flavors and ingredients.</p>
+                        </div>
+                        <div class="about-section">
+                            <h3>🍱 Limited Time Menu</h3>
+                            <p>Our special Sakura menu features unique items like Sakura Burger, Matcha McFlurry, and Teriyaki Chicken, available only during cherry blossom season.</p>
+                        </div>
+                        <div class="about-section">
+                            <h3>🏮 Cultural Heritage</h3>
+                            <p>We honor Japanese culture by incorporating authentic flavors and seasonal ingredients, creating a unique McDonald's experience that celebrates Japan's rich culinary traditions.</p>
+                        </div>
+                        <div class="about-section">
+                            <h3>📞 Contact Us</h3>
+                            <p>Email: sakura@mcdonalds.jp<br>
+                            Phone: +81-3-SAKURA-1<br>
+                            Follow us: @McDonaldsJapan</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+
+        // Close Modal Function
+        function closeModal() {
+            const modal = document.querySelector('.modal-overlay');
+            if (modal) {
+                modal.remove();
+            }
+        }
+
+        // Close modal when clicking outside
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('modal-overlay')) {
+                closeModal();
+            }
+        });
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
