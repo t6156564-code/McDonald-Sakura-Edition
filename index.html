@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>McDonald's Sakura Edition - Menu Spécial Japon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        /* Header */
+        .header {
+            background: #DA020E;
+            color: white;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            background: #FFC72C;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 900;
+            color: #DA020E;
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #FFC72C;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #FFB7C5 0%, #FFC72C 100%);
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '🌸';
+            position: absolute;
+            font-size: 200px;
+            opacity: 0.1;
+            top: -50px;
+            right: -50px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            background: #DA020E;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+            font-size: 64px;
+            font-weight: 900;
+            color: #DA020E;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            background: #DA020E;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background: #B8001A;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(218, 2, 14, 0.3);
+        }
+
+        /* Menu Section */
+        .menu-section {
+            padding: 80px 20px;
+            background: #f8f8f8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 48px;
+            font-weight: 900;
+            color: #DA020E;
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 60px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .menu-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .card-image {
+            height: 250px;
+            background: linear-gradient(135deg, #FFC72C, #FFE55C);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-card:hover .card-image img {
+            transform: scale(1.1);
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #DA020E;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .card-content {
+            padding: 30px;
+        }
+
+        .card-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #DA020E;
+            margin-bottom: 15px;
+        }
+
+        .card-description {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .card-price {
+            font-size: 32px;
+            font-weight: 900;
+            color: #DA020E;
+            margin-bottom: 15px;
+        }
+
+        .card-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .card-features li {
+            padding: 5px 0;
+            color: #666;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .card-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        /* Combo Section */
+        .combo-section {
+            background: #DA020E;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .combo-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .combo-badge {
+            background: #FFC72C;
+            color: #DA020E;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+
+        .combo-title {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        .combo-price {
+            font-size: 72px;
+            font-weight: 900;
+            margin-bottom: 15px;
+            color: #FFC72C;
+        }
+
+        .combo-savings {
+            font-size: 20px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .combo-items {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .combo-item {
+            text-align: center;
+        }
+
+        .combo-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255, 199, 44, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            overflow: hidden;
+        }
+
+        .combo-icon img {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .combo-name {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .footer {
+            background: #333;
+            color: white;
+            padding: 60px 20px 30px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 32px;
+            font-weight: 700;
+            color: #FFC72C;
+            margin-bottom: 20px;
+        }
+
+        .footer-text {
+            font-size: 16px;
+            opacity: 0.8;
+            margin-bottom: 30px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: #FFC72C;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #555;
+            padding-top: 20px;
+            font-size: 14px;
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 40px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .combo-items {
+                gap: 20px;
+            }
+
+            .combo-price {
+                font-size: 48px;
+            }
+        }
+
+        /* Interactive Elements */
+        .menu-card.active {
+            border: 3px solid #DA020E;
+        }
+
+        .nutrition-info {
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .allergen-warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 12px;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">M</div>
+                <div class="logo-text">McDonald's</div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#nutrition">Nutrition</a></li>
+                <li><a href="#locations">Locations</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">Limited Time Only</div>
+            <h1 class="hero-title">Sakura Edition</h1>
+            <p class="hero-subtitle">Experience the authentic taste of Japan with our exclusive limited-time menu</p>
+            <a href="#menu" class="cta-button">Explore Menu</a>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu-section" id="menu">
+        <div class="container">
+            <h2 class="section-title">Featured Menu</h2>
+            <p class="section-subtitle">Discover our exclusive Japanese-inspired creations</p>
+            
+            <div class="menu-grid">
+                <!-- McWagyu Burger -->
+                <div class="menu-card" onclick="toggleCard(this)">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="McWagyu Burger">
+                        <div class="card-badge">Premium</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">McWagyu Burger</h3>
+                        <p class="card-description">Premium Wagyu beef patty with authentic teriyaki sauce, fresh lettuce, tomato, and red onion on a toasted sesame seed bun.</p>
+                        <div class="card-price">€12.90</div>
+                        <ul class="card-features">
+                            <li>100% Premium Wagyu Beef</li>
+                            <li>House-made Teriyaki Sauce</li>
+                            <li>Fresh Vegetables</li>
+                            <li>Sesame Seed Bun</li>
+                        </ul>
+                        <div class="nutrition-info" style="display: none;">
+                            <strong>Nutrition Information:</strong><br>
+                            Calories: 650 | Protein: 35g | Fat: 28g | Carbs: 45g
+                        </div>
+                        <div class="allergen-warning">
+                            Contains: Gluten, Sesame, Soy. May contain traces of eggs and dairy.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nori Sesame Fries -->
+                <div class="menu-card" onclick="toggleCard(this)">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Nori Sesame Fries">
+                        <div class="card-badge">New</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Nori Sesame Fries</h3>
+                        <p class="card-description">Our signature golden fries seasoned with premium nori seaweed and toasted sesame seeds, served with wasabi mayo dip.</p>
+                        <div class="card-price">€4.50</div>
+                        <ul class="card-features">
+                            <li>Premium Nori Seasoning</li>
+                            <li>Toasted Sesame Seeds</li>
+                            <li>Wasabi Mayo Dip</li>
+                            <li>Crispy Golden Fries</li>
+                        </ul>
+                        <div class="nutrition-info" style="display: none;">
+                            <strong>Nutrition Information:</strong><br>
+                            Calories: 320 | Protein: 4g | Fat: 15g | Carbs: 42g
+                        </div>
+                        <div class="allergen-warning">
+                            Contains: Sesame. May contain traces of fish and soy.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Matcha Milkshake -->
+                <div class="menu-card" onclick="toggleCard(this)">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1515823064-d6e0c04616a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Matcha Milkshake">
+                        <div class="card-badge">Authentic</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Matcha Milkshake</h3>
+                        <p class="card-description">Creamy milkshake made with authentic matcha green tea powder from Kyoto, topped with whipped cream and matcha dust.</p>
+                        <div class="card-price">€4.90</div>
+                        <ul class="card-features">
+                            <li>Authentic Kyoto Matcha</li>
+                            <li>Creamy Vanilla Base</li>
+                            <li>Fresh Whipped Cream</li>
+                            <li>Matcha Powder Topping</li>
+                        </ul>
+                        <div class="nutrition-info" style="display: none;">
+                            <strong>Nutrition Information:</strong><br>
+                            Calories: 380 | Protein: 8g | Fat: 12g | Carbs: 58g
+                        </div>
+                        <div class="allergen-warning">
+                            Contains: Dairy. May contain traces of nuts.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Combo Section -->
+    <section class="combo-section">
+        <div class="combo-container">
+            <div class="combo-badge">Best Value</div>
+            <h2 class="combo-title">Complete Sakura Experience</h2>
+            <div class="combo-price">€19.90</div>
+            <p class="combo-savings">Save €2.40 compared to individual items</p>
+            <a href="#order" class="cta-button" style="background: #FFC72C; color: #DA020E;">Order Now</a>
+            
+            <div class="combo-items">
+                <div class="combo-item">
+                    <div class="combo-icon">
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="McWagyu Burger">
+                    </div>
+                    <div class="combo-name">McWagyu Burger</div>
+                </div>
+                <div class="combo-item">
+                    <div class="combo-icon">
+                        <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Nori Sesame Fries">
+                    </div>
+                    <div class="combo-name">Nori Sesame Fries</div>
+                </div>
+                <div class="combo-item">
+                    <div class="combo-icon">
+                        <img src="https://images.unsplash.com/photo-1515823064-d6e0c04616a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Matcha Milkshake">
+                    </div>
+                    <div class="combo-name">Matcha Milkshake</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">I'm lovin' it!</div>
+            <p class="footer-text">Experience the taste of Japan at McDonald's</p>
+            
+            <div class="footer-links">
+                <a href="nutrition_info.html">Nutrition Info</a>
+                <a href="allergen_info.html">Allergen Info</a>
+                <a href="locations.html">Find a Restaurant</a>
+                <a href="careers.html">Careers</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 McDonald's. All rights reserved. | Sakura Edition available for a limited time at participating restaurants.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleCard(card) {
+            // Remove active class from all cards
+            document.querySelectorAll('.menu-card').forEach(c => c.classList.remove('active'));
+            
+            // Add active class to clicked card
+            card.classList.add('active');
+            
+            // Toggle nutrition info
+            const nutritionInfo = card.querySelector('.nutrition-info');
+            if (nutritionInfo.style.display === 'none') {
+                nutritionInfo.style.display = 'block';
+            } else {
+                nutritionInfo.style.display = 'none';
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(218, 2, 14, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = '#DA020E';
+                header.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

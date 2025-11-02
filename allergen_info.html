@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allergen Information - McDonald's Sakura Edition</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f8f8;
+        }
+
+        /* Header */
+        .header {
+            background: #DA020E;
+            color: white;
+            padding: 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            background: #FFC72C;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 900;
+            color: #DA020E;
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .back-button {
+            background: #FFC72C;
+            color: #DA020E;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .back-button:hover {
+            background: #FFD700;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 48px;
+            font-weight: 900;
+            color: #DA020E;
+            margin-bottom: 20px;
+        }
+
+        .page-subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 50px;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border: 2px solid #ffeaa7;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .warning-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .warning-text {
+            color: #856404;
+            font-size: 16px;
+        }
+
+        .allergen-table {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            overflow-x: auto;
+        }
+
+        .table-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #DA020E;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background: #DA020E;
+            color: white;
+            font-weight: 700;
+            position: sticky;
+            top: 0;
+        }
+
+        .allergen-present {
+            background: #ffebee;
+            color: #c62828;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .allergen-absent {
+            background: #e8f5e8;
+            color: #2e7d32;
+            text-align: center;
+        }
+
+        .allergen-trace {
+            background: #fff3e0;
+            color: #ef6c00;
+            text-align: center;
+        }
+
+        .legend {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        .legend-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #DA020E;
+            margin-bottom: 15px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            gap: 15px;
+        }
+
+        .legend-color {
+            width: 30px;
+            height: 20px;
+            border-radius: 5px;
+        }
+
+        .contact-info {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .contact-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #DA020E;
+            margin-bottom: 15px;
+        }
+
+        .contact-text {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .contact-button {
+            background: #DA020E;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .contact-button:hover {
+            background: #B8001A;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: #333;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-text {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 32px;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            th, td {
+                padding: 10px 5px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">M</div>
+                <div class="logo-text">McDonald's</div>
+            </div>
+            <a href="McDonald_Sakura_Website.html" class="back-button">← Retour au Menu</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <h1 class="page-title">Informations Allergènes</h1>
+        <p class="page-subtitle">Guide complet des allergènes pour le menu Sakura Edition</p>
+
+        <!-- Warning Box -->
+        <div class="warning-box">
+            <div class="warning-title">⚠️ Important</div>
+            <div class="warning-text">
+                Si vous souffrez d'allergies alimentaires, veuillez informer notre personnel avant de commander. 
+                Nos produits peuvent contenir des traces d'allergènes en raison de la préparation dans nos cuisines.
+            </div>
+        </div>
+
+        <!-- Allergen Table -->
+        <div class="allergen-table">
+            <h2 class="table-title">Tableau des Allergènes - Menu Sakura Edition</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Produit</th>
+                        <th>Gluten</th>
+                        <th>Œufs</th>
+                        <th>Lait</th>
+                        <th>Soja</th>
+                        <th>Sésame</th>
+                        <th>Poisson</th>
+                        <th>Fruits à coque</th>
+                        <th>Moutarde</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>McWagyu Burger</strong></td>
+                        <td class="allergen-present">✓</td>
+                        <td class="allergen-trace">Traces</td>
+                        <td class="allergen-trace">Traces</td>
+                        <td class="allergen-present">✓</td>
+                        <td class="allergen-present">✓</td>
+                        <td class="allergen-absent">-</td>
+                        <td class="allergen-absent">-</td>
+                        <td class="allergen-absent">-</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Frites Nori Sésame</strong></td>
+                        <td class="allergen-absent">-</td>
+                        <td class="allergen-absent">-</td>
+                        <td class="allergen-absent">-</td>
+                        <td class="allergen-trace">Traces</td>
+                        <td class="allergen-present">✓</td>
+                        <td class="allergen-trace">Traces</td>
+                        <td class="allergen-absent">-</td>
+                        <td class="allergen-absent">-</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Milkshake Matcha</strong></td>
+                        <td class="allergen-absent">-</td>
+                        <td class="allergen-absent">-</td>
+                        <td class="allergen-present">✓</td>
+                        <td class="allergen-absent">-</td>
+                        <td class="allergen-absent">-</td>
+                        <td class="allergen-absent">-</td>
+                        <td class="allergen-trace">Traces</td>
+                        <td class="allergen-absent">-</td>
+                    </tr>
+                    <tr style="background: #f5f5f5; font-weight: bold;">
+                        <td><strong>Menu Complet</strong></td>
+                        <td class="allergen-present">✓</td>
+                        <td class="allergen-trace">Traces</td>
+                        <td class="allergen-present">✓</td>
+                        <td class="allergen-present">✓</td>
+                        <td class="allergen-present">✓</td>
+                        <td class="allergen-trace">Traces</td>
+                        <td class="allergen-trace">Traces</td>
+                        <td class="allergen-absent">-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Legend -->
+        <div class="legend">
+            <h3 class="legend-title">Légende</h3>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #ffebee;"></div>
+                <span><strong>✓ Contient</strong> - L'allergène est présent dans le produit</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #fff3e0;"></div>
+                <span><strong>Traces</strong> - Peut contenir des traces de l'allergène</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #e8f5e8;"></div>
+                <span><strong>-</strong> - L'allergène n'est pas présent</span>
+            </div>
+        </div>
+
+        <!-- Detailed Information -->
+        <div class="allergen-table">
+            <h2 class="table-title">Informations Détaillées</h2>
+            
+            <div style="margin-bottom: 20px;">
+                <h4 style="color: #DA020E; margin-bottom: 10px;">🍔 McWagyu Burger</h4>
+                <p><strong>Contient :</strong> Gluten (pain au sésame), Soja (sauce teriyaki), Sésame (graines sur le pain)</p>
+                <p><strong>Peut contenir :</strong> Traces d'œufs et de produits laitiers (mayonnaise)</p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <h4 style="color: #DA020E; margin-bottom: 10px;">🍟 Frites Nori Sésame</h4>
+                <p><strong>Contient :</strong> Sésame (graines grillées)</p>
+                <p><strong>Peut contenir :</strong> Traces de poisson (nori), Traces de soja (sauce dans la mayonnaise wasabi)</p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <h4 style="color: #DA020E; margin-bottom: 10px;">🥤 Milkshake Matcha</h4>
+                <p><strong>Contient :</strong> Lait (lait entier, crème glacée, crème fouettée)</p>
+                <p><strong>Peut contenir :</strong> Traces de fruits à coque (contamination croisée)</p>
+            </div>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="contact-info">
+            <h3 class="contact-title">Besoin d'aide ?</h3>
+            <p class="contact-text">
+                Pour toute question concernant les allergènes ou pour signaler une allergie spécifique, 
+                n'hésitez pas à contacter notre équipe.
+            </p>
+            <a href="contact.html" class="contact-button">Nous Contacter</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-text">
+            <p>&copy; 2024 McDonald's. Les informations sur les allergènes sont mises à jour régulièrement mais peuvent varier.</p>
+        </div>
+    </footer>
+</body>
+</html>

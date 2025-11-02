@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Information - McDonald's Sakura Edition</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f8f8;
+        }
+
+        /* Header */
+        .header {
+            background: #DA020E;
+            color: white;
+            padding: 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            background: #FFC72C;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 900;
+            color: #DA020E;
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .back-button {
+            background: #FFC72C;
+            color: #DA020E;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .back-button:hover {
+            background: #FFD700;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 48px;
+            font-weight: 900;
+            color: #DA020E;
+            margin-bottom: 20px;
+        }
+
+        .page-subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 50px;
+        }
+
+        .nutrition-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .nutrition-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .nutrition-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+
+        .product-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: #DA020E;
+            margin-bottom: 20px;
+        }
+
+        .nutrition-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .nutrition-table th,
+        .nutrition-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .nutrition-table th {
+            background: #f5f5f5;
+            font-weight: 700;
+            color: #DA020E;
+        }
+
+        .allergen-info {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .allergen-title {
+            font-weight: 700;
+            color: #856404;
+            margin-bottom: 5px;
+        }
+
+        .allergen-text {
+            font-size: 14px;
+            color: #856404;
+        }
+
+        .ingredients-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .ingredients-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #DA020E;
+            margin-bottom: 20px;
+        }
+
+        .ingredient-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f8f8;
+            border-radius: 8px;
+        }
+
+        .ingredient-name {
+            font-weight: 700;
+            color: #DA020E;
+            margin-bottom: 5px;
+        }
+
+        .ingredient-list {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        .footer {
+            background: #333;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-text {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nutrition-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-title {
+                font-size: 32px;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">M</div>
+                <div class="logo-text">McDonald's</div>
+            </div>
+            <a href="McDonald_Sakura_Website.html" class="back-button">← Retour au Menu</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <h1 class="page-title">Informations Nutritionnelles</h1>
+        <p class="page-subtitle">Découvrez les valeurs nutritionnelles de notre menu Sakura Edition</p>
+
+        <div class="nutrition-grid">
+            <!-- McWagyu Burger -->
+            <div class="nutrition-card">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="McWagyu Burger" class="product-image">
+                <h3 class="product-name">McWagyu Burger</h3>
+                
+                <table class="nutrition-table">
+                    <thead>
+                        <tr>
+                            <th>Nutriment</th>
+                            <th>Quantité</th>
+                            <th>% VNR*</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Énergie</td>
+                            <td>650 kcal</td>
+                            <td>33%</td>
+                        </tr>
+                        <tr>
+                            <td>Protéines</td>
+                            <td>35g</td>
+                            <td>70%</td>
+                        </tr>
+                        <tr>
+                            <td>Glucides</td>
+                            <td>45g</td>
+                            <td>17%</td>
+                        </tr>
+                        <tr>
+                            <td>Lipides</td>
+                            <td>28g</td>
+                            <td>40%</td>
+                        </tr>
+                        <tr>
+                            <td>Fibres</td>
+                            <td>4g</td>
+                            <td>16%</td>
+                        </tr>
+                        <tr>
+                            <td>Sodium</td>
+                            <td>1.2g</td>
+                            <td>60%</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="allergen-info">
+                    <div class="allergen-title">Allergènes :</div>
+                    <div class="allergen-text">Contient : Gluten, Sésame, Soja. Peut contenir des traces d'œufs et de produits laitiers.</div>
+                </div>
+            </div>
+
+            <!-- Nori Sesame Fries -->
+            <div class="nutrition-card">
+                <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Nori Sesame Fries" class="product-image">
+                <h3 class="product-name">Frites Nori Sésame</h3>
+                
+                <table class="nutrition-table">
+                    <thead>
+                        <tr>
+                            <th>Nutriment</th>
+                            <th>Quantité</th>
+                            <th>% VNR*</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Énergie</td>
+                            <td>320 kcal</td>
+                            <td>16%</td>
+                        </tr>
+                        <tr>
+                            <td>Protéines</td>
+                            <td>4g</td>
+                            <td>8%</td>
+                        </tr>
+                        <tr>
+                            <td>Glucides</td>
+                            <td>42g</td>
+                            <td>16%</td>
+                        </tr>
+                        <tr>
+                            <td>Lipides</td>
+                            <td>15g</td>
+                            <td>21%</td>
+                        </tr>
+                        <tr>
+                            <td>Fibres</td>
+                            <td>3g</td>
+                            <td>12%</td>
+                        </tr>
+                        <tr>
+                            <td>Sodium</td>
+                            <td>0.8g</td>
+                            <td>40%</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="allergen-info">
+                    <div class="allergen-title">Allergènes :</div>
+                    <div class="allergen-text">Contient : Sésame. Peut contenir des traces de poisson et de soja.</div>
+                </div>
+            </div>
+
+            <!-- Matcha Milkshake -->
+            <div class="nutrition-card">
+                <img src="https://images.unsplash.com/photo-1515823064-d6e0c04616a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Matcha Milkshake" class="product-image">
+                <h3 class="product-name">Milkshake Matcha</h3>
+                
+                <table class="nutrition-table">
+                    <thead>
+                        <tr>
+                            <th>Nutriment</th>
+                            <th>Quantité</th>
+                            <th>% VNR*</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Énergie</td>
+                            <td>380 kcal</td>
+                            <td>19%</td>
+                        </tr>
+                        <tr>
+                            <td>Protéines</td>
+                            <td>8g</td>
+                            <td>16%</td>
+                        </tr>
+                        <tr>
+                            <td>Glucides</td>
+                            <td>58g</td>
+                            <td>22%</td>
+                        </tr>
+                        <tr>
+                            <td>Lipides</td>
+                            <td>12g</td>
+                            <td>17%</td>
+                        </tr>
+                        <tr>
+                            <td>Fibres</td>
+                            <td>1g</td>
+                            <td>4%</td>
+                        </tr>
+                        <tr>
+                            <td>Sodium</td>
+                            <td>0.2g</td>
+                            <td>10%</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="allergen-info">
+                    <div class="allergen-title">Allergènes :</div>
+                    <div class="allergen-text">Contient : Produits laitiers. Peut contenir des traces de fruits à coque.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ingredients Section -->
+        <div class="ingredients-section">
+            <h2 class="ingredients-title">Liste des Ingrédients</h2>
+            
+            <div class="ingredient-item">
+                <div class="ingredient-name">McWagyu Burger</div>
+                <div class="ingredient-list">
+                    Pain au sésame (farine de blé, eau, levure, graines de sésame, sel), steak de bœuf Wagyu (100% bœuf Wagyu), sauce teriyaki (sauce soja, mirin, sucre, gingembre), laitue iceberg, tomate, oignon rouge, mayonnaise, cornichons.
+                </div>
+            </div>
+
+            <div class="ingredient-item">
+                <div class="ingredient-name">Frites Nori Sésame</div>
+                <div class="ingredient-list">
+                    Pommes de terre, huile de tournesol, assaisonnement nori (algue nori séchée, sel marin), graines de sésame grillées, mayonnaise wasabi (mayonnaise, wasabi en poudre, sauce soja).
+                </div>
+            </div>
+
+            <div class="ingredient-item">
+                <div class="ingredient-name">Milkshake Matcha</div>
+                <div class="ingredient-list">
+                    Lait entier, crème glacée vanille, poudre de matcha de Kyoto, sucre, crème fouettée, stabilisants (carraghénanes), arôme naturel de vanille.
+                </div>
+            </div>
+        </div>
+
+        <p style="text-align: center; font-size: 14px; color: #666; margin-top: 30px;">
+            *VNR : Valeurs Nutritionnelles de Référence pour un adulte-type (8400 kJ/2000 kcal)<br>
+            Les valeurs peuvent varier selon la préparation et la taille des portions.
+        </p>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-text">
+            <p>&copy; 2024 McDonald's. Toutes les informations nutritionnelles sont approximatives et peuvent varier.</p>
+        </div>
+    </footer>
+</body>
+</html>
