@@ -1,80 +1,80 @@
-# 🌸 McDonald's Sakura Edition - Site Web Officiel
+# 🌸 McDonald's Sakura Edition - Official Website
 
-Un site web interactif présentant le menu spécial **McDonald's Sakura Edition**, inspiré de la culture japonaise et des saveurs authentiques du Japon.
+An interactive website presenting the special **McDonald's Sakura Edition** menu, inspired by Japanese culture and authentic flavors from Japan.
 
-## 🎯 Aperçu du Projet
+## 🎯 Project Overview
 
-Ce projet présente une collection complète de produits McDonald's à thème japonais :
-- **McWagyu Burger** - Burger premium au bœuf Wagyu
-- **Frites Nori Sésame** - Frites assaisonnées aux algues et sésame
-- **Milkshake Matcha** - Boisson crémeuse au thé vert matcha
+This project presents a complete collection of Japanese-themed McDonald's products:
+- **McWagyu Burger** - Premium burger with Wagyu beef
+- **Nori Sesame Fries** - Fries seasoned with seaweed and sesame
+- **Matcha Milkshake** - Creamy drink with matcha green tea
 
-## 🌟 Fonctionnalités
+## 🌟 Features
 
-### 🖥️ Site Web Principal (`index.html`)
-- Design moderne inspiré du site officiel McDonald's Japon
-- Navigation fluide et responsive
-- Cartes de menu interactives avec images professionnelles
-- Section combo avec calcul d'économies
-- Animations et effets visuels avancés
+### 🖥️ Main Website (`index.html`)
+- Modern design inspired by the official McDonald's Japan website
+- Smooth and responsive navigation
+- Interactive menu cards with professional images
+- Combo section with savings calculation
+- Advanced animations and visual effects
 
-### 📊 Pages Dédiées
-- **Informations Nutritionnelles** (`nutrition_info.html`)
-  - Tableaux nutritionnels détaillés
-  - Valeurs nutritionnelles complètes (calories, protéines, etc.)
-  - Liste des ingrédients pour chaque produit
+### 📊 Dedicated Pages
+- **Nutritional Information** (`nutrition_info.html`)
+  - Detailed nutritional tables
+  - Complete nutritional values (calories, proteins, etc.)
+  - Ingredient list for each product
 
-- **Informations Allergènes** (`allergen_info.html`)
-  - Tableau interactif avec code couleur
-  - Avertissements de sécurité
-  - Contact pour questions spécifiques
+- **Allergen Information** (`allergen_info.html`)
+  - Interactive table with color coding
+  - Safety warnings
+  - Contact for specific questions
 
-### 📄 Documents Marketing
-- **Flyer Professionnel** (`McDonald_Sakura_Flyer.html`)
-- **Présentation** (`Presentation_Sakura_Edition.html`)
+### 📄 Marketing Documents
+- **Professional Flyer** (`McDonald_Sakura_Flyer.html`)
+- **Presentation** (`Presentation_Sakura_Edition.html`)
 
 ## 🎨 Design & Style
 
-- **Couleurs McDonald's** authentiques (rouge, jaune, blanc)
-- **Images professionnelles** haute résolution (Unsplash)
-- **Typographie** moderne et lisible
-- **Responsive Design** adapté mobile/desktop
-- **Animations CSS** fluides et professionnelles
+- Authentic **McDonald's colors** (red, yellow, white)
+- **Professional high-resolution images** (Unsplash)
+- Modern and readable **typography**
+- **Responsive Design** adapted for mobile/desktop
+- Smooth and professional **CSS animations**
 
-## 🚀 Déploiement
+## 🚀 Deployment
 
 ### GitHub Pages
-1. Visitez le site en direct : [Lien GitHub Pages]
-2. Le site est automatiquement déployé depuis la branche `main`
+1. Visit the live site: [GitHub Pages Link]
+2. The site is automatically deployed from the `main` branch
 
-### Installation Locale
+### Local Installation
 ```bash
-git clone [URL_DU_REPOSITORY]
+git clone [REPOSITORY_URL]
 cd McDonald-Sakura-Edition
-# Ouvrir index.html dans votre navigateur
+# Open index.html in your browser
 ```
 
-## 📱 Compatibilité
+## 📱 Compatibility
 
 - ✅ Chrome, Firefox, Safari, Edge
-- ✅ Responsive (Mobile, Tablette, Desktop)
-- ✅ Optimisé pour les performances
-- ✅ Accessible (Alt text, contraste)
+- ✅ Responsive (Mobile, Tablet, Desktop)
+- ✅ Performance optimized
+- ✅ Accessible (Alt text, contrast)
 
-## 🛠️ Technologies Utilisées
+## 🛠️ Technologies Used
 
-- **HTML5** - Structure sémantique
-- **CSS3** - Styles avancés et animations
-- **JavaScript** - Interactivité
-- **Responsive Design** - Flexbox et Grid
-- **Images Unsplash** - Contenu visuel professionnel
+- **HTML5** - Semantic structure
+- **CSS3** - Advanced styles and animations
+- **JavaScript** - Interactivity
+- **Responsive Design** - Flexbox and Grid
+- **Unsplash Images** - Professional visual content
 
 ## 📞 Contact
 
-Pour toute question concernant ce projet ou les informations nutritionnelles, contactez-nous via le formulaire sur le site.
+For any questions regarding this project or nutritional information, contact us via the form on the website.
 
 ---
 
-**© 2025 McDonald's Sakura Edition - Projet éducatif inspiré de McDonald's**
+**© 2025 McDonald's Sakura Edition - Educational project inspired by McDonald's**
 
-*Ce projet est créé à des fins éducatives et n'est pas affilié officiellement à McDonald's Corporation.*
+*This project is created for educational purposes and is not officially affiliated with McDonald's Corporation.*
